@@ -88,80 +88,58 @@
 		$stmt->execute();
 		$data = $stmt->fetch();
 	}
+
+	include_once "header.php";
 	?>
 
- <!DOCTYPE html>
- <html lang="en">
+ <div class="container">
+     <div class="row">
+         <div class="col-md-6 offset-md-3 mt-3">
+             <h3>Edit</h3>
+             <?php
+				if (isset($success)) { ?>
+             <p class="alert alert-warning"><?php echo $success; ?></p>
+             <?php }
+				?>
+             <form action="?id=<?php echo $_GET['id']; ?>" method="post" enctype="multipart/form-data">
 
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Document</title>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
- </head>
-
- <body>
-     <div class="container">
-         <div class="row">
-             <div class="col-md-6 offset-md-3 mt-3">
-                 <h3>Edit</h3>
+                 <div class="form-group">
+                     <label for="username">User Name</label>
+                     <input type="text" name="username" class="form-control" id="username"
+                         value="<?php echo $data['username'] ?>">
+                 </div>
                  <?php
-					if (isset($success)) { ?>
-                 <p class="alert alert-warning"><?php echo $success; ?></p>
+					if (isset($errors['username'])) { ?>
+                 <p class="alert alert-warning"><?php echo $errors['username'] ?></p>
                  <?php }
 					?>
-                 <form action="?id=<?php echo $_GET['id']; ?>" method="post" enctype="multipart/form-data">
-
-                     <div class="form-group">
-                         <label for="username">User Name</label>
-                         <input type="text" name="username" class="form-control" id="username"
-                             value="<?php echo $data['username'] ?>">
-                     </div>
+                 <div class="form-group">
+                     <label for="email">Email address</label>
+                     <input type="email" name="email" class="form-control" id="email"
+                         value="<?php echo $data['email'] ?>">
                      <?php
-						if (isset($errors['username'])) { ?>
-                     <p class="alert alert-warning"><?php echo $errors['username'] ?></p>
+						if (isset($errors['email'])) { ?>
+                     <p class="alert alert-warning"><?php echo $errors['email'] ?></p>
                      <?php }
 						?>
-                     <div class="form-group">
-                         <label for="email">Email address</label>
-                         <input type="email" name="email" class="form-control" id="email"
-                             value="<?php echo $data['email'] ?>">
-                         <?php
-							if (isset($errors['email'])) { ?>
-                         <p class="alert alert-warning"><?php echo $errors['email'] ?></p>
-                         <?php }
-							?>
 
-                     </div>
+                 </div>
 
-                     <div class="form-group">
-                         <label for="file">Profile Photo</label>
-                         <input type="file" name="file" class="form-control" id="exampleInputfile"
-                             value="<?php echo $data['profile_photo'] ?>">
-                         <?php
-							if (isset($errors['file'])) { ?>
-                         <p class="alert alert-warning"><?php echo $errors['file'] ?></p>
-                         <?php }
-							?>
-                     </div>
+                 <div class="form-group">
+                     <label for="file">Profile Photo</label>
+                     <input type="file" name="file" class="form-control" id="exampleInputfile"
+                         value="<?php echo $data['profile_photo'] ?>">
+                     <?php
+						if (isset($errors['file'])) { ?>
+                     <p class="alert alert-warning"><?php echo $errors['file'] ?></p>
+                     <?php }
+						?>
+                 </div>
 
-                     <button type="submit" class="btn btn-primary" name="update">Update</button>
-                 </form>
-             </div>
+                 <button type="submit" class="btn btn-primary" name="update">Update</button>
+             </form>
          </div>
      </div>
+ </div>
 
-
-     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-     </script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-     </script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-     </script>
- </body>
-
- </html>
+ <?php include_once "footer.php"; ?>
