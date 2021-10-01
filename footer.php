@@ -1,3 +1,4 @@
+</div>
 <footer class="footer">
     <div class="container">
         <span class="text-muted">All Rights Protected 2021</span>
