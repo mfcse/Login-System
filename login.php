@@ -113,6 +113,8 @@
 
                  <button type="submit" class="btn btn-primary" name="login">Login</button>
              </form>
+             <p class="mt-4">New User? Please Register <a href="register.php">here</a></p>
+
          </div>
      </div>
  </div>
