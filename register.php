@@ -1,4 +1,8 @@
  <?php
+	include_once "header.php";
+	if (isset($_SESSION['id'], $_SESSION['username'])) {
+		header('Location:users.php');
+	}
 
 	$errors = [];
 	//sanitize
@@ -86,7 +90,6 @@
 		}
 	}
 
-	include_once "header.php";
 	?>
 
 
