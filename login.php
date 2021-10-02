@@ -1,6 +1,6 @@
  <?php
-
-	session_start();
+	include_once "header.php";
+	//session_start();
 	//$errors=[];
 	//sanitize
 	function sanitize_input($content)
@@ -64,7 +64,7 @@
 		}
 	}
 
-	include_once "header.php";
+
 	?>
 
  <div class="container">

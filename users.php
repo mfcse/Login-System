@@ -1,5 +1,7 @@
  <?php
-    session_start();
+    //session_start();
+    include_once "header.php";
+
     if (!isset($_SESSION['id'], $_SESSION['username'])) {
         header('Location:login.php');
     }
@@ -16,7 +18,7 @@
         $data = $stmt->fetchAll();
     }
 
-    include_once "header.php";
+
     ?>
 
  <div class="container">

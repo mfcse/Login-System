@@ -1,11 +1,11 @@
  <?php
-
-    session_start();
+    include_once "header.php";
+    //session_start();
     if (!isset($_SESSION['id'], $_SESSION['username'])) {
         header('Location:index.php');
     }
 
-    include_once "header.php";
+    //include_once "header.php";
     ?>
 
  <div class="container">
